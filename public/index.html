@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ComicCraft - AI Comic Story Creator</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1>🎨 ComicCraft</h1>
+    <p>AI Comic Story Creator using Gemini + Hugging Face image models</p>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h2>Create Your Own Comic</h2>
+    <p>Enter an idea, choose a mood and art style, then generate a panel-by-panel comic.</p>
+  </section>
+
+  <section class="grid">
+    <form id="comicForm" class="card">
+      <h2>1. Story Settings</h2>
+
+      <label>Story Prompt</label>
+      <textarea name="prompt" required placeholder="A brave fox exploring an enchanted forest"></textarea>
+
+      <div class="two">
+        <div>
+          <label>Main Character</label>
+          <input name="character_name" required placeholder="Finn">
+        </div>
+        <div>
+          <label>Setting</label>
+          <input name="setting" required placeholder="Enchanted Forest">
+        </div>
+      </div>
+
+      <div class="two">
+        <div>
+          <label>Tone</label>
+          <select name="tone">
+            <option>dramatic</option>
+            <option>funny</option>
+            <option>adventurous</option>
+            <option>mysterious</option>
+            <option>heartwarming</option>
+            <option>action-packed</option>
+          </select>
+        </div>
+        <div>
+          <label>Art Style</label>
+          <select name="art_style">
+            <option>anime</option>
+            <option>comic book</option>
+            <option>cartoon</option>
+            <option>watercolor</option>
+            <option>fantasy illustration</option>
+            <option>manga</option>
+          </select>
+        </div>
+      </div>
+
+      <label>Number of Panels</label>
+      <select name="panels">
+        <option value="2">2</option>
+        <option value="4" selected>4</option>
+        <option value="6">6</option>
+        <option value="8">8</option>
+      </select>
+
+      <button type="submit" id="generateBtn">✨ Generate Comic</button>
+      <p id="status"></p>
+    </form>
+
+    <section class="card">
+      <div class="preview-header">
+        <h2>2. Comic Preview</h2>
+        <button id="downloadBtn" class="download" type="button" disabled>📄 Download PDF</button>
+      </div>
+
+      <div id="comicPreview" class="comic-grid">
+        <div class="empty">
+          Your generated comic panels will appear here.
+        </div>
+      </div>
+    </section>
+  </section>
+</main>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
